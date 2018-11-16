@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title layout:fragment="Titre">Mail</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/mdb.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/jquery.dataTables.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/material-icons.min.css}"/>
+
+
+    <link rel="stylesheet" type="text/css" th:href="@{/adminlte/plugins/font-awesome/css/font-awesome.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/adminlte/dist/css/adminlte.min.css}">
+
+</head>
+
+
+
+<body th:fragment="body" style="font-family: 'Droid Sans Mono Slashed'; font-size: 18px" class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+    <!-- Navbar -->
+    <nav class="main-header navbar fixed-top navbar-expand bg-primary navbar-light border-bottom">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a th:href="@{/Accueil}" class="nav-link">Accueil</a>
+            </li>
+
+            <li class="nav-item d-none d-sm-inline-block">
+                <a th:href="@{/Contact}" class="nav-link">Contact</a>
+            </li>
+
+            <li class="nav-item d-none d-sm-inline-block">
+                <a th:href="@{/Apropos}" class="nav-link">A Propos</a>
+            </li>
+
+            <li class="nav-item d-none d-sm-inline-block">
+                <a th:href="@{/Aide}" class="nav-link">Aides</a>
+            </li>
+
+
+            <li class="nav-item d-none d-sm-inline-block">
+                <marquee behavior="" direction="">
+                    <a href="https://spring.io/projects/spring-boot" target="_blank" style="color:green" class="nav-link">Sbring Boot </a>
+                </marquee>
+            </li>
+
+        </ul>
+
+
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+        <!-- Brand Logo -->
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="info">
+                    <a href="#" class="d-block">
+                        &nbsp;&nbsp;&nbsp;&nbsp
+                        <i class="fa fa-circle text-success"></i>
+                        JTEK-Solutions S.B.
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                    <li class="nav-item has-treeview menu-open">
+                        <a th:href="@{/Accueil}" class="nav-link">
+                            <i class="nav-icon fa fa-users"></i>
+                            <p>
+                                Accueil
+                                <span class="right badge badge-info">New</span>
+                            </p>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a th:href="@{/Informations}" class="nav-link">
+                            <i class="nav-icon fa fa-user-secret"></i>
+                            <p>
+                                Informations
+                                <span class="right badge badge-danger">New</span>
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a th:href="@{/Acheter}" class="nav-link">
+                            <i class="nav-icon fa fa-table"></i>
+                            <p>
+                                Acheter
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item has-treeview">
+                        <a th:href="@{/Voyager}" class="nav-link">
+                            <i class="nav-icon fa fa-calendar-plus-o"></i>
+                            <p>
+                                Voyager
+                            </p>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item has-treeview">
+                        <a th:href="@{/Appeler}" class="nav-link">
+                            <i class="nav-icon fa fa-magic"></i>
+                            <p>
+                                Qui Appeler?
+                            </p>
+                        </a>
+                    </li>
+
+
+
+                    <li class="nav-item has-treeview">
+                        <a th:href="@{/Pharmacie}" class="nav-link">
+                            <i class="nav-icon fa fa-paint-brush"></i>
+                            <p>
+                                Pharmacies
+                            </p>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item has-treeview">
+                        <a th:href="@{/Hopital}" class="nav-link">
+                            <i class="nav-icon fa fa-book"></i>
+                            <p>
+                                Hôpitaux
+                            </p>
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item has-treeview">
+                        <a th:href="@{/Conclusion}" class="nav-link">
+                            <i class="nav-icon fa fa-sellsy"></i>
+                            <p>
+                                Conclusion
+                            </p>
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Fin du Menu -->
+
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6" layout:fragment="titreContenu">
+                    </div><!-- /.col -->
+
+                    <div class="col-sm-6">
+                        <br><br>
+                        <ol class="breadcrumb float-sm-right" layout:fragment="autre"></ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+
+        <!-- Main content -->
+        <div class="content">
+            <div class="container-fluid" layout:fragment="contenu">
+                <br>
+
+
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+
+    <!-- Main Footer -->
+    <footer class="main-footer success" layout:fragment="footer">
+        <strong>Copyright &copy; <script>document.write(new Date().getFullYear());</script> <a href="#"></a>JTEK</strong>
+        Tous droits Réservés.
+        <div class="float-right d-none d-sm-inline-block">
+            <b>Version</b> 1.2.0
+        </div>
+
+    </footer>
+
+</div>
+
+
+</body>
+
+
+
+<script type="text/javascript" th:src="@{/adminlte/plugins/jquery/jquery.min.js}"></script>
+
+<!-- Bootstrap -->
+<script th:src="@{adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+<!-- AdminLTE -->
+<script type="text/javascript" th:src="@{adminlte/dist/js/adminlte.js}"></script>
+
+
+<!-- OPTIONAL SCRIPTS -->
+<script type="text/javascript" th:src="@{/adminlte/dist/js/demo.js}"></script>
+<script type="text/javascript" th:src="@{/adminlte/dist/js/pages/dashboard3.js}"></script>
+
+
+
+</html>
