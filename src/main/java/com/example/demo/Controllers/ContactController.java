@@ -21,14 +21,11 @@ public class ContactController {
     public ContactController(ContactService contactService) { this.contactService = contactService; }
 
 
-
-
     @RequestMapping(value = "/Contact", method = RequestMethod.GET)
     public String showPage(Model model) throws IOException, MessagingException {
         model.addAttribute("contact", new Contact());
         return "Pages/Contact/index";
     }
-
 
 
     @RequestMapping(value = "/ajouter/Contact", method = RequestMethod.POST)

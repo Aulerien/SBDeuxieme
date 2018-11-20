@@ -1,12 +1,10 @@
 package com.example.demo.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Contact {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,7 +12,6 @@ public class Contact {
     private String message;
     private String nom;
     private String email;
-
 
     public Long getId() {
         return id;

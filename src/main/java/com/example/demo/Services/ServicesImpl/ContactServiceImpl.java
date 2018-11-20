@@ -1,12 +1,12 @@
-package com.example.demo.Services;
+package com.example.demo.Services.ServicesImpl;
 
 import com.example.demo.Model.Contact;
 import com.example.demo.Repositories.ContactRepository;
+import com.example.demo.Services.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ContactServiceImpl implements ContactService {
@@ -20,9 +20,7 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public Optional<Contact> getContact(Long id) {
-         return contactRepository.findById(id);
-    }
+    public Contact getContact(Long id) { return contactRepository.getOne(id); }
 
     @Override
     public Contact editContact(Contact contact) {
