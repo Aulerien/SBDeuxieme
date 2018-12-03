@@ -35,8 +35,6 @@ public class ContactController {
             return "redirect:/";
         }
 
-
-
         model.addAttribute("contact", new Contact());
         model.addAttribute("utilisateur",request.getSession().getAttribute("utilisateur"));
         return "Pages/Contact/index";
@@ -44,11 +42,13 @@ public class ContactController {
 
 
     @RequestMapping(value = "/ajouter/Contact", method = RequestMethod.POST)
-    public String ajouterContact(@ModelAttribute Contact contact, Model model) {
+    public String ajouterContact(@ModelAttribute Contact contact, Model model,
+                                 HttpServletRequest request) {
 
         contactService.createContact(contact);
         model.addAttribute("contactAjouter","Demande bien envoyée !!!");
-
+        model.addAttribute("contact", new Contact());
+        model.addAttribute("utilisateur",request.getSession().getAttribute("utilisateur"));
         return "Pages/Contact/index";
     }
 }
