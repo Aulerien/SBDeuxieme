@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/mdb.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/jquery.dataTables.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/material-icons.min.css}"/>
-
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/apartement.jpg}" />
 
     <link rel="stylesheet" type="text/css" th:href="@{/adminlte/plugins/font-awesome/css/font-awesome.min.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/adminlte/dist/css/adminlte.min.css}">
@@ -64,14 +64,16 @@
 
         <!-- Sidebar -->
         <div class="sidebar">
-            <!-- Sidebar user panel (optional) -->
+            <!-- Sidebar utilisateur panel (optional) -->
 
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="utilisateur-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="info">
+                    <!--/*@thymesVar id="utilisateur" type="com.example.demo.Model.Utilisateur"*/-->
                     <a href="#" class="d-block">
                         &nbsp;&nbsp;&nbsp;&nbsp
-                        <i class="fa fa-circle text-success"></i>
-                        JTEK-Solutions S.B.
+                        <i class="fa fa-circle text-success">
+                            <span th:text="${utilisateur.username}"></span>
+                        </i>
                     </a>
                 </div>
             </div>
@@ -94,13 +96,16 @@
 
                     <li class="nav-item">
                         <a th:href="@{/Informations}" class="nav-link">
-                            <i class="nav-icon fa fa-user-secret"></i>
+                            <i class="nav-icon fa fa-utilisateur-secret"></i>
                             <p>
                                 Informations
                                 <span class="right badge badge-danger">New</span>
                             </p>
                         </a>
                     </li>
+
+
+
 
                     <li class="nav-item">
                         <a th:href="@{/Acheter}" class="nav-link">
@@ -116,6 +121,16 @@
                             <i class="nav-icon fa fa-calendar-plus-o"></i>
                             <p>
                                 Voyager
+                            </p>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item has-treeview">
+                        <a th:href="@{Utilisateur}" class="nav-link">
+                            <i class="nav-icon fa fa-user"></i>
+                            <p>
+                                Utilisateurs
                             </p>
                         </a>
                     </li>
@@ -160,6 +175,17 @@
                             </p>
                         </a>
                     </li>
+
+
+                    <li class="nav-item has-treeview">
+                        <a th:href="@{/Deconnecter}" class="nav-link">
+                            <i class="nav-icon fa fa-sellsy"></i>
+                            <p>
+                                Déconnecter
+                            </p>
+                        </a>
+                    </li>
+
 
                 </ul>
             </nav>
@@ -237,5 +263,6 @@
 <script type="text/javascript" th:src="@{/adminlte/dist/js/pages/dashboard3.js}"></script>
 
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmqHCO0G4oTuNDGb1igOuNOazUCRnR958&callback=initMap" async defer></script>
 
 </html>

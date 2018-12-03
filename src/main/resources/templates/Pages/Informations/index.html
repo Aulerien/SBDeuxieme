@@ -10,18 +10,121 @@
 
 <div class="container-fluid" layout:fragment="contenu">
 
-
-    <p>
-        <strong>
-            Informations
-        </strong>
-    </p>
+            <div class="row">
 
 
-</div>
+            <div class="col-sm-4 col-md-2" th:each="pay : ${lesPays}">
+                <a data-toggle="modal" th:attr="data-target='#exampleModal'+${pay.id}">
+                <div class="info-box mb-3 bg-warning animated bounce">
+                        <span class="info-box-icon"><i class="fa fa-tag"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text" th:text="${pay.nom}"></span>
+                        </div>
+                    <!-- /.info-box-content -->
+                </div>
+                </a>
+
+
+                <!-- Les modal -->
+                <div class="modal fade" th:id="'exampleModal'+${pay.id}" role="dialog" th:attr="aria-labelledby='exampleModalLabel'+${pay.id}"  aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" th:id="'exampleModalLabel'+${pay.id}" th:text="${pay.nom}"></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body primary">
+
+                                <div class="row">
+
+                                <div class="col-lg-3">
+
+                                    <a th:href="@{'/information/Pays/'+${pay.id}+'/Sante'}">
+                                        <div class="info-box mb-3 bg-warning animated bounce">
+                                            <div class="info-box-content">
+                                                <span class="info-box-text">Santé</span>
+                                            </div>
+                                            <!-- /.info-box-content -->
+                                        </div>
+                                    </a>
+
+                                </div>
 
 
 
+                                    <div class="col-lg-3">
+                                        <a th:href="@{'/information/Pays/'+${pay.id}+'/Affaire'}">
+                                            <div class="info-box mb-3 bg-warning animated bounce">
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Affaire</span>
+                                                </div>
+                                                <!-- /.info-box-content -->
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <a th:href="@{'/information/Pays/'+${pay.id}+'/Technologie'}">
+                                            <div class="info-box mb-3 bg-warning animated bounce">
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Technologie</span>
+                                                </div>
+                                                <!-- /.info-box-content -->
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="row">
+
+                                    <div class="col-lg-3">
+                                        <a th:href="@{'/information/Pays/'+${pay.id}+'/Sport'}">
+                                            <div class="info-box mb-3 bg-warning animated bounce">
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Sport</span>
+                                                </div>
+                                                <!-- /.info-box-content -->
+                                            </div>
+                                        </a>
+                                    </div>
+
+
+                                    <div class="col-lg-4">
+                                        <a th:href="@{'/information/Pays/'+${pay.id}+'/Divertissement'}">
+                                            <div class="info-box mb-3 bg-warning animated bounce">
+                                                <div class="info-box-content">
+                                                    <span class="info-box-text">Divertissement</span>
+                                                </div>
+                                                <!-- /.info-box-content -->
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fin des Modals -->
+
+
+            </div>
+
+            </div>
 
 
 </html>

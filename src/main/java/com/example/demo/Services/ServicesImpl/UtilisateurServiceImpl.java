@@ -1,40 +1,76 @@
 package com.example.demo.Services.ServicesImpl;
 
-import com.example.demo.Model.User;
-import com.example.demo.Repositories.UserRepository;
-import com.example.demo.Services.UserService;
+import com.example.demo.Model.Utilisateur;
+import com.example.demo.Repositories.UtilisateurRepository;
+import com.example.demo.Services.UtilisateurService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public class UserServiceImpl implements UserService {
+
+@Service
+public class UtilisateurServiceImpl implements UtilisateurService {
 
     @Autowired
-    private UserRepository userRepository;
+    private UtilisateurRepository utilisateurRepository;
 
 
     @Override
-    public User createUser(User user) {
-        return userRepository.save(user);
+    public Utilisateur createUtilisateur(Utilisateur utilisateur) {
+        return utilisateurRepository.save(utilisateur);
     }
 
     @Override
-    public User getUser(Long id) {
-        return userRepository.getOne(id);
+    public Utilisateur getUtilisateur(Long id) {
+        return utilisateurRepository.getOne(id);
+    }
+
+
+    @Override
+    public Boolean authentifier(String Username, String Password) {
+        List<Utilisateur> utilisateurList = utilisateurRepository.findAll();
+        for (int i = 0; i < utilisateurList.size(); i++)
+        {
+            Utilisateur tmp = utilisateurList.get(i);
+
+            if( tmp.getUsername().equals(Username) && tmp.getPassword().equals(Password))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
+    @Override
+    public Utilisateur getAuthentified(String Username, String Password) {
+        List<Utilisateur> utilisateurList = utilisateurRepository.findAll();
+        for (int i = 0; i < utilisateurList.size(); i++)
+        {
+            Utilisateur tmp = utilisateurList.get(i);
+            if( tmp.getUsername().equals(Username) && tmp.getPassword().equals(Password))
+            {
+                return tmp;
+            }
+        }
+
+        return null;
     }
 
     @Override
-    public User editUser(User user) {
-        return userRepository.save(user);
+    public Utilisateur editUtilisateur(Utilisateur utilisateur) {
+        return utilisateurRepository.save(utilisateur);
     }
 
     @Override
-    public void deleteUser(User user) {
-        userRepository.delete(user);
+    public void deleteUtilisateur(Utilisateur utilisateur) {
+        utilisateurRepository.delete(utilisateur);
     }
 
     @Override
-    public List<User> getAllUser() {
-        return userRepository.findAll();
+    public List<Utilisateur> getAllUtilisateur() {
+        return utilisateurRepository.findAll();
     }
 }

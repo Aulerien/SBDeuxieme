@@ -1,10 +1,106 @@
-<!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorator="Pages/layout.html">
+
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title layout:fragment="Titre">Informations</title>
 </head>
-<body>
-$END$
-</body>
+
+
+<div class="container-fluid" layout:fragment="contenu">
+
+
+                <a class="btn btn-primary" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                    Nouveau Utilisateur
+                </a>
+
+    <br>
+
+        <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-3"></div>
+
+                    <div class="col-lg-6">
+                        <form th:action="@{/Utilisateur/Ajouter}" method="post" enctype="multipart/form-data">
+                            <input type="text" name="username" class="form-control" placeholder="Nom d'Utilisateur" required >
+                            <br>
+
+                            <input type="password" name="password" class="form-control" placeholder="Mot de Passe" required >
+                            <br>
+
+                            <textarea name="description" id="description" cols="30" rows="5" class="form-control" placeholder="Description">
+
+                            </textarea>
+
+                            <br>
+                            <label for="imageFile">Image Utilisateur</label>
+
+                             <input id="imageFile" type="file" name="imageUser"> <br>
+
+                            <input type="submit" value="Ajouter" class="btn btn-success">
+                            <input type="reset" value="Annuler" class="btn btn-danger">
+                            
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+    <br>
+    <br>
+
+    <div class="row">
+
+    <div class="col-sm-4 col-md-4" th:each="utilisa : ${utilisateurs}">
+
+        <div class="card card-widget widget-user-2">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-secondary ">
+                <div class="widget-user-image">
+                    <img class="img-circle elevation-2" th:src="@{'/upload/'+${utilisa.image}}" th:alt="${utilisa.username + ' '+ Photo}">
+                </div>
+                <!-- /.widget-user-image -->
+                <h3 class="widget-user-username" th:text="${utilisa.username}"> <strong>Le nom Utilisateur</strong></h3>
+                <h6 class="widget-user-desc" th:text="${utilisa.description}">Description des Utilisateurs </h6>
+            </div>
+            <div class="card-footer p-0">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Projets <span class="float-right badge bg-primary">31</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Tâches <span class="float-right badge bg-info">5</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Projets Fini(s) <span class="float-right badge bg-success">12</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
 </html>

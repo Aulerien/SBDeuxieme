@@ -12098,7 +12098,7 @@ label:not(.form-check-label):not(.custom-file-label) {
   margin-top: 10%;
 }
 
-/* User name [optional] */
+/* Utilisateur name [optional] */
 .lockscreen .lockscreen-name {
   text-align: center;
   font-weight: 600;
@@ -12114,7 +12114,7 @@ label:not(.form-check-label):not(.custom-file-label) {
   width: 290px;
 }
 
-/* User image */
+/* Utilisateur image */
 .lockscreen-image {
   border-radius: 50%;
   position: absolute;

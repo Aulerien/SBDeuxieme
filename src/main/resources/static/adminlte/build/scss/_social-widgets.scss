@@ -8,9 +8,9 @@
   position: relative;
 }
 
-//User Widget Style 1
+//Utilisateur Widget Style 1
 .widget-user {
-  //User name container
+  //Utilisateur name container
   .widget-user-header {
     padding: 1rem;
     height: 120px;
@@ -18,7 +18,7 @@
       @include border-top-radius($border-radius);
     }
   }
-  //User name
+  //Utilisateur name
   .widget-user-username {
     margin-top: 0;
     margin-bottom: 5px;
@@ -26,11 +26,11 @@
     font-weight: 300;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   }
-  //User single line description
+  //Utilisateur single line description
   .widget-user-desc {
     margin-top: 0;
   }
-  //User image container
+  //Utilisateur image container
   .widget-user-image {
     position: absolute;
     top: 65px;
@@ -48,21 +48,21 @@
   }
 }
 
-//User Widget Style 2
+//Utilisateur Widget Style 2
 .widget-user-2 {
-  //User name container
+  //Utilisateur name container
   .widget-user-header {
     padding: 1rem;
     @include border-top-radius($border-radius);
   }
-  //User name
+  //Utilisateur name
   .widget-user-username {
     margin-top: 5px;
     margin-bottom: 5px;
     font-size: 25px;
     font-weight: 300;
   }
-  //User single line description
+  //Utilisateur single line description
   .widget-user-desc {
     margin-top: 0;
   }
@@ -70,7 +70,7 @@
   .widget-user-desc {
     margin-left: 75px;
   }
-  //User image container
+  //Utilisateur image container
   .widget-user-image {
     > img {
       width: 65px;
