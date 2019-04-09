@@ -1,22 +1,14 @@
 package com.example.demo.Controllers;
 
-import com.example.demo.Model.Utilisateur;
-import com.example.demo.Services.UtilisateurService;
 import com.example.demo.Utils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.mail.*;
 import javax.mail.internet.*;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.Properties;
 
@@ -24,59 +16,15 @@ import java.util.Properties;
 @Controller
 public class MainController {
 
-
     @Controller
     public class EmailController {
 
 
-        private final UtilisateurService utilisateurService;
-        @Autowired
-        public EmailController(UtilisateurService utilisateurService) {
-            this.utilisateurService = utilisateurService;
-        }
-
-
         @RequestMapping(value = "/", method = RequestMethod.GET)
-        public String sendEmail(Model model) throws IOException {
-
-            Utilisateur utilisateur = new Utilisateur();
-
-            model.addAttribute("utilisateur",utilisateur);
-            return "Pages/Login/login";
+        public String sendEmail(Model model) throws IOException, MessagingException {
+           // sendmail();
+            return "Pages/Accueil/index";
         }
-
-
-        @RequestMapping(value = "/Deconnecter", method = RequestMethod.GET)
-        public String deconnecter(Model model, HttpServletRequest request){
-            Utils.logout(request);
-            return "Pages/Login/login";
-        }
-
-
-        @RequestMapping(value = "/", method = RequestMethod.POST)
-        public String loginEmail(Model model,
-                                 HttpServletRequest request,
-                                 @ModelAttribute("utilisateur") Utilisateur utilisateur) throws UnsupportedEncodingException, NoSuchAlgorithmException {
-
-           Boolean connecter = utilisateurService.authentifier(utilisateur.getUsername(),Utils.Crypter(utilisateur.getPassword()));
-
-           if (connecter)
-           {
-               Utilisateur tmpSession = utilisateurService.getAuthentified(utilisateur.getUsername(),Utils.Crypter(utilisateur.getPassword()));
-               HttpSession session = request.getSession(true);
-               session.setAttribute("utilisateur",tmpSession);
-
-
-               model.addAttribute("utilisateur",tmpSession);
-               return "redirect:/Accueil";
-           }
-
-            model.addAttribute("echecConnexion","Oui");
-            Utilisateur utili = new Utilisateur();
-            model.addAttribute("utilisateur",utili);
-            return "Pages/Login/login";
-        }
-
     }
 
 

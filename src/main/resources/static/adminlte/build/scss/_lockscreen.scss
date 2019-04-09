@@ -23,7 +23,7 @@
   margin-top: 10%;
 }
 
-/* Utilisateur name [optional] */
+/* User name [optional] */
 .lockscreen .lockscreen-name {
   text-align: center;
   font-weight: 600;
@@ -39,7 +39,7 @@
   width: 290px;
 }
 
-/* Utilisateur image */
+/* User image */
 .lockscreen-image {
   @include border-radius(50%);
   position: absolute;

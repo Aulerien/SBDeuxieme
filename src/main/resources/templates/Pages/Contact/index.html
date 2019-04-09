@@ -9,50 +9,14 @@
 
 
 <div class="container-fluid" layout:fragment="contenu">
-    <div class="card card-primary">
-        <div class="card-header">
-            <h3 class="card-title">Contactez-Nous</h3>
-        </div>
-        <!-- /.card-header -->
-        <!-- form start -->
 
 
-        <div class="row">
-            <div class="col-lg-2"></div>
+    <p>
+        <strong>
+            Contactez-Nous
+        </strong>
+    </p>
 
-            <div class="col-lg-6">
-                <form role="form" th:object="${contact}" th:action="@{/ajouter/Contact}" method="post" >
-                    <div class="card-body">
-                        <div class="form-group">
-                            <input name="email" type="text" class="form-control" placeholder="Mail" required>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" name="nom" class="form-control" placeholder="Nom" required>
-                        </div>
-
-
-                        <div class="form-group">
-                        <textarea placeholder="Votre Demande" name="message" id="" cols="30" rows="10" class="form-control" required>
-
-                        </textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="submit" value="Envoyer" class="form-control btn btn-success">
-                            <input type="reset" value="Annuler" class="form-control btn btn-danger">
-                        </div>
-
-                    </div>
-
-                </form>
-            </div>
-
-        </div>
-
-
-
-    </div>
 
 </div>
 

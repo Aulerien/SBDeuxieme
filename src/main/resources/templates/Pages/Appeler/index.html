@@ -8,104 +8,19 @@
 </head>
 
 
-<div class="container-fluid animated " layout:fragment="contenu">
+<div class="container-fluid" layout:fragment="contenu">
 
 
-
-
-    <!-- DIRECT COMMUNICATION -->
-    <!--/*@thymesVar id="utilisateurs" type="com.example.demo.Model.Utilisateur"*/-->
-    <div class="card card-success direct-chat direct-chat-primary"
-         th:each="utilisa : ${utilisateurs}"
-         th:if="${utilisa.id != utilisateur.id}">
-        <div class="card-header">
-
-                <h3 class="card-title">
-                    <strong th:text="${utilisa.username}">
-                    </strong>
-                </h3>
-
-            <div class="card-tools">
-                <span data-toggle="tooltip" title="Nouveaux Messages"
-                      class="badge badge-primary"
-                      th:each="rep : ${reponses}" th:if="${ rep.idUtilisateur == utilisa.id}" th:text="${rep.nbMessage}">
-
-                </span>
-
-                <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-
-            </div>
-        </div>
-
-
-
-        <!-- /.card-header -->
-        <div class="card-body">
-
-            <!-- Conversations are loaded here -->
-            <div class="direct-chat-messages">
-
-
-                <!-- Message Entrant -->
-                <!--/*@thymesVar id="messages" type="com.example.demo.Model.Message"*/-->
-                <div
-                th:each="message : ${messages}"
-                th:if="${( (message.utilisateur.id == utilisateur.id) OR (message.messageto == utilisateur.id) ) AND ( (message.utilisateur.id == utilisa.id) OR (message.messageto == utilisa.id) ) }"
-                th:class="${(message.messageto == utilisateur.id) ? ' direct-chat-msg' : ' direct-chat-msg right' }">
-
-                    <!-- Information du message -->
-                    <div class="direct-chat-info clearfix">
-
-                        <span  th:class="'direct-chat-timestamp ' + ${(message.messageto == utilisateur.id) ? ' float-left' : ' float-right' }"
-                               th:text="${' '+ #dates.format(message.date, 'dd/MM/YYYY') + ' à ' + #dates.format(message.date, 'HH:mm')}">
-
-                        </span>
-                        <p class="card" th:if="${message.image != null}">
-                            <img class="img-fluid pad" th:src="@{'/message/'+${message.image}}" alt="Messe Image">
-                        </p>
-
-                    </div>
-                    <!-- Fin d'information du message -->
-
-                    <!-- L'image ici -->
-
-                    <!-- Le contenu du méssage -->
-                    <div class="direct-chat-text" th:text="${message.contenu}">
-
-                    </div>
-                    <!-- Fin du contenu du message -->
-                </div>
-                <!-- Fin Message Entrant -->
-
-
-            </div>
-            <!--/.direct-chat-messages-->
-        </div>
-        <!-- Fin de Card Body -->
-
-
-        <!-- Le bas -->
-        <div class="card-footer">
-            <form th:action="@{/envoyer/Message(idFrom=${utilisateur.id},idTo=${utilisa.id})}" th:object="${nouveauMessage}" method="post" id="formulaireMessage" enctype="multipart/form-data">
-                <div class="input-group">
-                    <input type="file" name="fileImage">
-                    <input type="text" name="contenu" placeholder="Votre Message ..." class="form-control" required>
-                    <span class="input-group-append">
-                      <input type="submit" value="Envoyer" class="btn btn-primary">
-                    </span>
-                </div>
-            </form>
-        </div>
-        <!-- Fin de bas -->
-
-    </div>
-    <!-- Fin de Conversation -->
-
-
+    <p>
+        <strong>
+            Appeler
+        </strong>
+    </p>
 
 
 </div>
+
+
 
 
 
